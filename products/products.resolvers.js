@@ -12,5 +12,13 @@ module.exports = {
         product: (_, args) => {
             return productsModel.getAllProductById(args.id);
         }
+    },
+    Mutation: {
+        addNewProduct: (_, args) => {
+            return productsModel.addNewProduct(args.id, args.description, args.price)
+        },
+        addNewProductReview: (_, args) => {
+            productsModel.addNewProductReview(args.id, args.rating, args.comment)
+        }
     }
 };

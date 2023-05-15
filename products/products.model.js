@@ -3,11 +3,13 @@ const products = [
         id: 'blueShoe',
         description: 'Blue Shoe',
         price: 43.99,
+        reviews: []
     },
     {
         id: 'bluejeans',
         description: 'Blue Jeans',
         price: 55.55,
+        reviews: []
     }
 ];
 
@@ -27,7 +29,40 @@ function getProductsById(id) {
     })
 }
 
+function addNewProduct(id, description, price) {
+    const newProduct = {
+        id,
+        price,
+        description,
+        reviews: []
+    };
+    products.push(newProduct);
+    return newProduct;
+}
+
+function addNewProductReview(id, rating, cooment) {
+    const matchedProduct = getProductById(id);
+
+    if (matchedProduct) {
+        const newProductReview = {
+            rating,
+            comment,
+
+        };
+
+        matchedProduct.reviews.push(newProductReview)
+
+
+
+    }
+
+    return newProductReview
+
+}
+
 module.exports = {
     getAllProduct,
     getProductsByPrice,
+    getProductsById,
+    addNewProduct,
 }
